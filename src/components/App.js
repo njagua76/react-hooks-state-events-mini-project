@@ -9,7 +9,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   function handleDeleteTask(taskToDelete) {
-    setTasks(tasks.filter((task) => task.text !== taskToDelete.text));
+    setTasks(tasks.filter((task) => task.text !== taskToDelete));
   }
 
   function handleAddTask(newTask) {
