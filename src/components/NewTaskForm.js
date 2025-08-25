@@ -15,12 +15,15 @@ function NewTaskForm({ categories, onTaskFormSubmit }) {
     <form className="new-task-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        name="text"
         placeholder="New task details"
-      
+        onChange={(e) => setText(e.target.value)}
+
       />
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+      <select
+      name = "category"
+      value ={category}
+      onChange={(e) => setCategory(e.target.value)}>
         {categories
           .filter((c) => c !== "All")
           .map((c) => (

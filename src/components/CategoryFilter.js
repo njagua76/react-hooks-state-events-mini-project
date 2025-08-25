@@ -4,14 +4,14 @@ function CategoryFilter({ categories, selectedCategory, onSelectCategory }) {
   return (
     <div className="categories">
       <h5>Category filters</h5>
-      {categories.map((cat) => (
+      {categories.map((category) => (
         <button
-          key={cat}
-          className={selectedCategory === cat ? "selected" : ""}
-          onClick={() => onSelectCategory(cat)}
-          type="button" // prevents accidental form submissions
+          key={category}
+          className={selectedCategory === category ? "selected" : ""}
+          onClick={() => onSelectCategory(category)}
+          
         >
-          {cat}
+          {category}
         </button>
       ))}
     </div>
