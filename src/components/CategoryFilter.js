@@ -9,6 +9,7 @@ function CategoryFilter({ categories, selectedCategory, onSelectCategory }) {
           key={cat}
           className={selectedCategory === cat ? "selected" : ""}
           onClick={() => onSelectCategory(cat)}
+          type="button" // prevents accidental form submissions
         >
           {cat}
         </button>

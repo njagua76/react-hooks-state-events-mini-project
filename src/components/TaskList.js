@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task";
 
-function TaskList({ tasks, onDeleteTask }) {
+function TaskList({ tasks = [], onDeleteTask }) {
   return (
     <div className="tasks">
       {tasks.map((task, index) => (
@@ -12,3 +12,4 @@ function TaskList({ tasks, onDeleteTask }) {
 }
 
 export default TaskList;
+

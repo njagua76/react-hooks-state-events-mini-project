@@ -2,13 +2,17 @@ import React, { useState } from "react";
 
 function NewTaskForm({ categories, onTaskFormSubmit }) {
   const [text, setText] = useState("");
-  const [category, setCategory] = useState("Code");
+  const [category, setCategory] = useState(categories[0] || "Code");
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    // prevent adding empty tasks
+    if (text.trim() === "") return;
+
     onTaskFormSubmit({ text, category });
     setText("");
-    setCategory("Code");
+    setCategory(categories[0] || "Code");
   }
 
   return (
@@ -25,13 +29,11 @@ function NewTaskForm({ categories, onTaskFormSubmit }) {
         value={category}
         onChange={(e) => setCategory(e.target.value)}
       >
-        {categories
-          .filter((c) => c !== "All")
-          .map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
+        {categories.map((c) => (
+          <option key={c} value={c}>
+            {c}
+          </option>
+        ))}
       </select>
       <input type="submit" value="Add task" />
     </form>
@@ -39,4 +41,3 @@ function NewTaskForm({ categories, onTaskFormSubmit }) {
 }
 
 export default NewTaskForm;
-

@@ -28,11 +28,13 @@ function App() {
         selectedCategory={selectedCategory}
         onSelectCategory={setSelectedCategory}
       />
-      <NewTaskForm categories={CATEGORIES} onTaskFormSubmit={handleAddTask} />
+      <NewTaskForm
+        categories={CATEGORIES.filter((cat) => cat !== "All")}
+        onTaskFormSubmit={handleAddTask}
+      />
       <TaskList tasks={visibleTasks} onDeleteTask={handleDeleteTask} />
     </div>
   );
 }
 
 export default App;
-
